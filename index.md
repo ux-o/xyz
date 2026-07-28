@@ -14,4 +14,6 @@ The latest Information, AI lag, esp. the RAD model!
 
 ## 5th AI no advance
 
-[JekyII MWE](githubpagesHowtoC01.md)
+ 1. [JekyII MWE](githubpagesHowtoC01.md)
+
+ 2. [JekyII MWE2](githubpagesHowtoC02.md)
