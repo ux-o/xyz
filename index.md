@@ -7,6 +7,9 @@ Here the latest approach with AI, three AIs,
 What can be discovered?
 
 The latest Information, AI lag, esp. the RAD model!
+## Information
+
+- [hq0728](hq0728ai.md)
 
 ## The 3rd investigation and solution by AI
 
