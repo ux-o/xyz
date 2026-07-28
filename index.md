@@ -8,7 +8,7 @@ What can be discovered?
 
 The latest Information, AI lag, esp. the RAD model!
 
-## The 3rd investigation and solution by Claude AI
+## The 3rd investigation and solution by AI
 
 [Jekyll solution](githubpagesHowto03.md)
 
