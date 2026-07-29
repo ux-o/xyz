@@ -13,14 +13,14 @@ subtitle: "当您看到各种梦的时候......"
 
 是思想，还是现实？是酷炫的“高科技”，还是不变的原理，真理？
 
-> 笑话：
->   在 Native Archlinux 的 AUR 里有把 Microsoft site, 
-> genuine Windows 11 iso, https mount (PKGBUILD)
-> hacker style, create the font zst pkgs for Arch
->    但是残缺不全的字体如何让用户使用
->    300+ lines PKGBUILD, always failed
->    e.g. 让 AI 分析 PKGBUILD 后发现，
->    其实可以 6 lines 代替！
+> 笑话：  
+>   在 Native Archlinux 的 AUR 里有把 Microsoft site,   
+> genuine Windows 11 iso, https mount (PKGBUILD)  
+> hacker style, create the font zst pkgs for Arch  
+>    但是残缺不全的字体如何让用户使用  
+>    300+ lines PKGBUILD, always failed  
+>    e.g. 让 AI 分析 PKGBUILD 后发现，  
+>    其实可以 just 6 lines 代替！  
 
 # My tinker lab
 
