@@ -5,6 +5,9 @@ title: |
   within yaml header
 ---
 
+> **Notes**: inline code, code snippet, HTML tag 
+> 07/30/2026, Text in markdown from Google AI mode
+
 To create a multi-line title in a Markdown YAML header (front matter), use the YAML literal block scalar indicator | followed by a standard HTML `<br>` tag for the line break. [^1] 
 ## Recommended Syntax
 
@@ -13,7 +16,7 @@ To create a multi-line title in a Markdown YAML header (front matter), use the Y
 title: |
   First Line of Title <br>
   Second Line of Title
-author: ux
+author: Jane Doe
 ---
 ```
 
