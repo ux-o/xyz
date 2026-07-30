@@ -54,7 +54,16 @@ The latest Information, AI lag, esp. the RAD model!
 
 电脑硬件从大学的机房的 mainframe 终端，到现代的 laptop, smartphone 人手一台，多台！
 
-对电脑里装的软件变化，大家比我知道的更多。The latest document, wikipedia, wikibook, 知乎，百度， AI 也许可以告诉我们冰山一角。
+对电脑里装的软件变化，大家看到了无尽的变化。
+
+DOS, OS/2, Windows, SCO UNIX, HP-UX, GNU Linux
+
+pkg: msi, msix, rpm, deb, zst...
+
+pkg management也从Installshield, Install anywhere, winget, scoop, choco.
+yum, dnf, apt, pacman, yaru ...
+
+The latest document, wikipedia, wikibook, 知乎，百度， AI 也许可以告诉我们冰山一角。
 
 
 ## Explored Items
@@ -81,4 +90,4 @@ The latest Information, AI lag, esp. the RAD model!
 
 - [Footnotes](https://github.com/adam-p/markdown-here/wiki/markdown-cheatsheet#links)
 - [gfm reference](https://github.com/adam-p/markdown-here/wiki/markdown-cheatsheet)
-- [Github markdown multi lines title in yaml header](gfmtitleinyaml.md)
+- [Github markdown multi-line title in yaml header](gfmtitleinyaml.md)

@@ -3,7 +3,6 @@ title: |
   Github Markdown <br>
   multi-line title <br>
   within yaml header
-author: ux-o  
 ---
 
 To create a multi-line title in a Markdown YAML header (front matter), use the YAML literal block scalar indicator | followed by a standard HTML `<br>` tag for the line break. [^1] 
@@ -40,5 +39,5 @@ To help tailor this, let me know:
 
 Knowing this can help determine if your template needs explicit HTML escaping adjustments.
 
-- [^1]: [https://microfluidics.utoronto.ca](https://microfluidics.utoronto.ca/gitlab/help/ci/yaml/script.md)
-- [^2]: [https://github.com](https://github.com/dbt-labs/dbt-core/issues/5330)
+[^1]: [https://microfluidics.utoronto.ca](https://microfluidics.utoronto.ca/gitlab/help/ci/yaml/script.md)  
+[^2]: [https://github.com](https://github.com/dbt-labs/dbt-core/issues/5330)
