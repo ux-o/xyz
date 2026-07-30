@@ -40,5 +40,5 @@ To help tailor this, let me know:
 
 Knowing this can help determine if your template needs explicit HTML escaping adjustments.
 
-- [1]: [https://microfluidics.utoronto.ca](https://microfluidics.utoronto.ca/gitlab/help/ci/yaml/script.md)
-- [2]: [https://github.com](https://github.com/dbt-labs/dbt-core/issues/5330)
+- [^1]: [https://microfluidics.utoronto.ca](https://microfluidics.utoronto.ca/gitlab/help/ci/yaml/script.md)
+- [^2]: [https://github.com](https://github.com/dbt-labs/dbt-core/issues/5330)
