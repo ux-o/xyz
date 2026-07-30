@@ -1,16 +1,21 @@
 ---
-title: Github Markdown multiline title within yaml header
+title: |
+  Github Markdown 
+  multi-line title 
+  within yaml header
 ---
 
 To create a multi-line title in a Markdown YAML header (front matter), use the YAML literal block scalar indicator | followed by a standard HTML <br> tag for the line break. [1] 
 ## Recommended Syntax
 
----yaml
+```yaml
+---
 title: |
   First Line of Title <br>
   Second Line of Title
   author: ux
 ---
+```
 
 ## Why This Method Works
 
@@ -20,10 +25,12 @@ title: |
 ## Alternative: Title and Subtitle
 If your multi-line title is actually a main title followed by a subtitle, it is cleaner to separate them into two distinct YAML keys if your theme supports it:
 
----yaml
+```yaml
+---
 title: "My Main Title"
 subtitle: "My Subtitle text goes here"
 ---
+```
 
 To help tailor this, let me know:
 
@@ -32,5 +39,5 @@ To help tailor this, let me know:
 
 Knowing this can help determine if your template needs explicit HTML escaping adjustments.
 
-[1] [https://microfluidics.utoronto.ca](https://microfluidics.utoronto.ca/gitlab/help/ci/yaml/script.md)
-[2] [https://github.com](https://github.com/dbt-labs/dbt-core/issues/5330)
+- [1] [https://microfluidics.utoronto.ca](https://microfluidics.utoronto.ca/gitlab/help/ci/yaml/script.md)
+- [2] [https://github.com](https://github.com/dbt-labs/dbt-core/issues/5330)
