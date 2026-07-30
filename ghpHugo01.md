@@ -98,7 +98,7 @@ ssh -T git@github.com
 
 ## 步骤 3：Fork 模板仓库并克隆到本地
 
-> **为何使用模板？**
+> **为何使用模板？**  
 > 我们不从零搭建，而是直接使用一个**已经配置好主题和 GitHub Actions** 的模板。这样你不需要写任何配置文件，10分钟内就能看到成果。
 
 ### 3.1 Fork 模板
@@ -124,7 +124,7 @@ cd <你的用户名>.github.io
 
 ## 步骤 4：修改配置并本地预览
 
-> **为何要修改配置？**
+> **为何要修改配置？**  
 > 模板里默认的网站地址是 `example.com`，你需要把它改成你自己的 GitHub Pages 地址。
 
 ### 4.1 修改站点地址
@@ -170,7 +170,7 @@ Web Server is available at http://localhost:1313/
 
 ## 步骤 5：推送到 GitHub，触发自动部署
 
-> **为何推送就能自动部署？**
+> **为何推送就能自动部署？**  
 > 模板里已经配置好了 **GitHub Actions** 工作流。当你推送代码到 `main` 分支时，GitHub 会自动执行构建并部署到 GitHub Pages。
 
 ```bash
@@ -245,16 +245,16 @@ hugo new posts/我的第一篇博客/index.md
 
 ## 🔧 常见问题
 
-**Q: `hugo: command not found`**
+**Q: `hugo: command not found`**  
 A: 运行 `sudo pacman -S hugo` 重新安装。
 
-**Q: `Permission denied (publickey)` 推送失败**
+**Q: `Permission denied (publickey)` 推送失败**  
 A: 重新执行步骤 2，确保公钥已添加到 GitHub。
 
 **Q: 部署后网站是 404**
 A: 检查 `config/_default/config.toml` 中的 `baseurl` 是否填写正确，必须包含 `https://` 和你的完整用户名。
 
-**Q: 推送后 Actions 一直显示黄色**
+**Q: 推送后 Actions 一直显示黄色**  
 A: 等待几分钟，第一次部署可能需要稍长时间。如果超过 5 分钟，点击进入查看日志找错误原因。
 
 ---
