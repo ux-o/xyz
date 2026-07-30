@@ -1,11 +1,12 @@
 ---
 title: |
-  Github Markdown 
-  multi-line title 
+  Github Markdown <br>
+  multi-line title <br>
   within yaml header
+author: ux-o  
 ---
 
-To create a multi-line title in a Markdown YAML header (front matter), use the YAML literal block scalar indicator | followed by a standard HTML `<br>` tag for the line break. [1] 
+To create a multi-line title in a Markdown YAML header (front matter), use the YAML literal block scalar indicator | followed by a standard HTML `<br>` tag for the line break. [^1] 
 ## Recommended Syntax
 
 ```yaml
@@ -13,14 +14,14 @@ To create a multi-line title in a Markdown YAML header (front matter), use the Y
 title: |
   First Line of Title <br>
   Second Line of Title
-  author: ux
+author: ux
 ---
 ```
 
 ## Why This Method Works
 
 * The Pipe Operator (`|`): This Tells YAML to preserve your literal newlines and treat everything indented below it as a single string.
-* The `<br>` Tag: Most Markdown parsers (like [GitHub Pages / Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll) and Pandoc) parse the YAML title string directly into an HTML `<h1>` tag jgm/pandoc. Because standard Markdown ignores raw single newlines inside paragraph-like blocks, the HTML `<br>` tag is required to force the visual line break on the rendered page. [2] 
+* The `<br>` Tag: Most Markdown parsers (like [GitHub Pages / Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll) and Pandoc) parse the YAML title string directly into an HTML `<h1>` tag jgm/pandoc. Because standard Markdown ignores raw single newlines inside paragraph-like blocks, the HTML `<br>` tag is required to force the visual line break on the rendered page. [^2] 
 
 ## Alternative: Title and Subtitle
 If your multi-line title is actually a main title followed by a subtitle, it is cleaner to separate them into two distinct YAML keys if your theme supports it:
