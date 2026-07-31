@@ -1,8 +1,12 @@
 ---
 title: |
   AI Humor <br>
-  "When You Believe..."
+  When You Believe...
 ---
+## Table Of Contents
+
+- [mpv crash workaround](gh-pages-hugo/lesson01.md)
+- [mpv crash workaround](gh-pages-hugo/mpv-crash.md)
 
 ## 序言：当“梦”成为方法论
 
@@ -12,7 +16,7 @@ title: |
 
 一边是 AI 每天制造的神奇与炒作（hype），似乎什么都可以被取代；另一边是传统的学习路径——读文档、看教程、踩坑、再读文档——依然漫长而笨重。这中间的巨大裂缝，催生了一个问题：**现在是“不学而有术”的时代，还是“传统学习远远不够”的真实？**
 
- [`xyz`](https://ux-o.github.io/xyz/) 和 [`zyx`](https://ux-o.github.io/zyx/) 项目，就是这个问题的**一次实操回答**。
+ [`xyz`](https://ux-o.github.io/xyz/) 和 [`zyx`](https://ux-o.github.io/zyx/) 项目，就是这个问题的**一次实操回答**。(把构筑`zyx`的办法，过程记录到`xyz`的 blog 里)
 
 它的起点很小——只是两个 GitHub Pages 站点：一个基于 Jekyll（GitHub 默认方案），一个基于 Hugo + Stack Theme。但在搭建这两个站点的过程中，作者意外地触及了一个更大的命题：**如果让 AI 深度参与，传统意义上需要“多年积累”才能完成的专业交付，能不能被压缩到不可思议的短周期内？**
 
