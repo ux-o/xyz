@@ -1,478 +1,237 @@
-# Lesson 2: Explore and Customize — The Skeleton of Your Blog
+---
+title: Live Blog in 10 Minutes
+---
 
-**Teaching Philosophy**: Now that you have a *live website*, it's time to understand *what makes it tick*. In Lesson 1, you saw the magic. In Lesson 2, you will open the box and look inside. You will break things, fix them, and make the blog truly your own.
+# Lesson 1: Your Blog Goes Live in 10 Minutes
 
-This is the "top-down" approach in action: **Result → Experiment → Discover → Understand**.
+**Teaching Philosophy**: Start with the *result* — a live website on the internet — then work backwards to understand *how* it happened. This is the "top-down" approach: wonder → experiment → discover → understand.
 
 ---
 
 ## What You Will Achieve
 
-By the end of this lesson, you will:
-- Understand every folder in your Hugo project
-- Customize your site's appearance and sidebar
-- Add a new "About" page
-- Create a template (archetype) for new posts
-- Make your blog look and feel like *yours*, not a template
+By the end of this lesson, you will have a live personal blog at `https://<your-username>.github.io`. You will see it with your own eyes in a browser. Everything else — the how, the why, the details — comes later.
 
 ---
 
-## Part 1: The Grand Tour — What's in Your Project? (5 minutes)
+## Part 1: Environment Setup (3 minutes)
 
-Your blog project is more than just Markdown files. Let's explore the directory structure.
+Your machine is Arch Linux with GNOME Wayland. Root access is unrestricted. Let's get the tools.
 
-### 1.1 Open Your Project
+### 1.1 Install Hugo
 
-```bash
-cd ~/<your-username>.github.io
-ls -la
-```
-
-You should see something like this:
-
-```
-.
-├── archetypes/
-├── assets/
-├── config/
-├── content/
-├── data/
-├── i18n/
-├── layouts/
-├── static/
-├── .git/
-├── .github/
-└── go.mod
-```
-
-### 1.2 What Each Folder Does
-
-| Folder | Purpose | What You'll Put Here |
-|--------|---------|---------------------|
-| **`archetypes/`** | Templates for new content | Default front matter for new posts |
-| **`assets/`** | Files processed by Hugo's asset pipeline | SCSS, JavaScript, images that need processing |
-| **`config/`** | Site configuration | Your site's settings (title, theme, menus) |
-| **`content/`** | Your actual content | Markdown files — your blog posts and pages |
-| **`data/`** | Data files | JSON/TOML/YAML data for your templates |
-| **`i18n/`** | Translation tables | Multi-language support |
-| **`layouts/`** | HTML templates | How your content is displayed |
-| **`static/`** | Files copied as-is | Images, favicon, robots.txt |
-| **`.github/`** | GitHub Actions workflows | The automation that deploys your site |
-
-### 1.3 The Most Important Folder: `content/`
-
-This is where your blog posts live:
+Hugo is a static site generator — it takes Markdown files and turns them into HTML pages.
 
 ```bash
-tree content/
+sudo pacman -S hugo
 ```
 
-You'll see something like:
+Verify the installation:
 
-```
-content/
-├── _index.md          # Homepage content
-└── posts/             # All your blog posts
-    ├── _index.md      # Blog listing page
-    ├── my-first-post/
-    │   └── index.md   # A post in a bundle
-    └── another-post.md # A standalone post
+```bash
+hugo version
 ```
 
-> **Key Insight**: The folder structure inside `content/` **determines your site's URL structure**. A file at `content/posts/my-post.md` becomes `https://your-site.github.io/posts/my-post/`.
+You should see output similar to `hugo v0.163.3+extended`.
+
+### 1.2 Install Git
+
+```bash
+sudo pacman -S git
+git --version
+```
+
+### 1.3 Install Go
+
+The Stack theme uses Hugo Modules, which requires Go.
+
+```bash
+sudo pacman -S go
+go version
+```
 
 ---
 
-## Part 2: Customize Your Site's Look (10 minutes)
+## Part 2: Get the Template (2 minutes)
 
-Now let's make this blog *yours* by changing how it looks.
+Instead of building from scratch, we will use a **starter template** — a complete, working blog that we can customize.
 
-### 2.1 Find the Configuration Files
+### 2.1 Fork the Starter Template
 
-All configuration lives in `config/_default/`:
+1. Open your browser and go to: **https://github.com/CaiJimmy/hugo-theme-stack-starter**
+2. Click the green **"Use this template"** button
+3. Select **"Create a new repository"**
+4. Name your repository exactly: **`<your-username>.github.io`** (replace `<your-username>` with your actual GitHub username)
+5. Make it **Public** (GitHub Pages requires this for free hosting)
+6. Click **"Create repository"**
 
-```bash
-ls config/_default/
-```
-
-You'll see files like:
-- `config.toml` — Main site settings
-- `params.toml` — Theme-specific parameters
-- `menu.toml` — Navigation menu
-- `languages.toml` — Language settings
-
-### 2.2 Change the Site Title and Description
-
-Open the main config:
+### 2.2 Clone to Your Machine
 
 ```bash
-nano config/_default/config.toml
+git clone https://github.com/<your-username>/<your-username>.github.io.git
+cd <your-username>.github.io
 ```
-
-Find these lines and change them:
-
-```toml
-title = "My Awesome Tech Blog"
-```
-
-Now find the `params` section. Add or modify:
-
-```toml
-[params]
-    description = "A blog about software development, DevOps, and learning"
-```
-
-Save and exit.
-
-### 2.3 Customize the Sidebar Widgets
-
-The Stack theme has a right sidebar with widgets. Let's customize them.
-
-Open `params.toml`:
-
-```bash
-nano config/_default/params.toml
-```
-
-Look for the `[widgets]` section. You'll see something like:
-
-```toml
-[widgets]
-    homepage = ["search", "recent", "categories", "tag-cloud"]
-    page = ["search", "toc", "recent"]
-```
-
-Try removing "recent" from the homepage widgets:
-
-```toml
-[widgets]
-    homepage = ["search", "categories", "tag-cloud"]
-    page = ["search", "toc", "recent"]
-```
-
-Save, then run `hugo server` and see the difference.
-
-### 2.4 Add Your Social Links
-
-Still in `params.toml`, find the `[social]` section:
-
-```toml
-[social]
-    github = "https://github.com/<your-username>"
-    twitter = "https://twitter.com/<your-handle>"
-    # linkedin = "https://linkedin.com/in/<your-profile>"
-```
-
-Uncomment and add your own social links. These will appear in the sidebar.
 
 ---
 
-## Part 3: Add a New Page — "About Me" (5 minutes)
+## Part 3: See It Live — Locally (2 minutes)
 
-Every blog needs an About page. Let's create one.
+Before deploying to the internet, let's see what we have.
 
-### 3.1 Create the About Page
-
-In Hugo, pages go in the `content/` directory:
-
-```bash
-hugo new about/index.md
-```
-
-This creates `content/about/index.md` with some default front matter.
-
-### 3.2 Edit the About Page
-
-```bash
-nano content/about/index.md
-```
-
-Change it to something like:
-
-```yaml
----
-title: "About Me"
-date: 2026-07-27T10:00:00+08:00
-draft: false
----
-
-## Who I Am
-
-I'm a computer science student at [Your University]. I'm passionate about:
-
-- Software development
-- DevOps and automation
-- Open source
-
-## Why This Blog
-
-I created this blog to document my learning journey and share knowledge with others.
-
-## Contact
-
-- GitHub: [@<your-username>](https://github.com/<your-username>)
-- Email: your.email@example.com
-```
-
-### 3.3 Add the About Page to the Menu
-
-Open the menu configuration:
-
-```bash
-nano config/_default/menu.toml
-```
-
-Add a new entry:
-
-```toml
-[[main]]
-    name = "About"
-    pageRef = "/about/"
-    weight = 10
-```
-
-The `weight` determines the order in the menu (lower numbers appear first).
-
-### 3.4 Preview and Deploy
+### 3.1 Start the Local Server
 
 ```bash
 hugo server
 ```
 
-Visit `http://localhost:1313/about/` to see your new page.
+### 3.2 Open Your Browser
 
-When ready:
+Go to **http://localhost:1313**
+
+**You should see a working blog** — with articles, a sidebar, dark mode, and everything.
+
+> **Stop and appreciate this**: In less than 10 minutes, you have a fully functional blog running on your machine. You didn't write HTML, CSS, or JavaScript. You didn't configure a web server. You just ran one command.
+
+### 3.3 Stop the Server
+
+Press `Ctrl+C` in the terminal to stop the local server.
+
+---
+
+## Part 4: Make It Yours (2 minutes)
+
+Let's change something so this blog becomes *yours*.
+
+### 4.1 Edit the Configuration
+
+Open the configuration file:
+
+```bash
+nano config/_default/config.toml
+```
+
+Find the line that says:
+
+```toml
+baseurl = "https://demo.stack.jimmycai.com/"
+```
+
+Change it to:
+
+```toml
+baseurl = "https://<your-username>.github.io/"
+```
+
+Find the `title` line and change it to something like:
+
+```toml
+title = "My Awesome Blog"
+```
+
+Save and exit (`Ctrl+O`, `Enter`, `Ctrl+X`).
+
+### 4.2 Preview Your Changes
+
+Run `hugo server` again and refresh your browser. The title has changed.
+
+---
+
+## Part 5: Push to GitHub — Watch the Magic (2 minutes)
+
+Now for the exciting part: **push to GitHub and watch automation deploy your site to the internet**.
+
+### 5.1 Commit and Push
 
 ```bash
 git add .
-git commit -m "Added About page and customized sidebar"
+git commit -m "Initial commit: my blog is alive"
 git push origin main
 ```
 
-Watch GitHub Actions deploy your changes.
+### 5.2 Configure GitHub Pages to Use Actions
+
+1. Go to your repository on GitHub: `https://github.com/<your-username>/<your-username>.github.io`
+2. Click **Settings** → **Pages** (in the left sidebar)
+3. Under **"Build and deployment"** → **Source**, select **"GitHub Actions"**
+4. The change is immediate — no Save button needed
+
+### 5.3 Watch the Automation
+
+1. Click the **Actions** tab at the top of your repository
+2. You will see a workflow running — it might be called "Deploy Hugo site to Pages" or similar
+3. Wait for the green checkmark ✓
+
+### 5.4 Visit Your Live Blog
+
+Open your browser and go to:
+
+**`https://<your-username>.github.io`**
+
+**Your blog is now live on the internet.** Anyone in the world can visit it.
 
 ---
 
-## Part 4: Create a Post Template (Archetype) (5 minutes)
+## Part 6: What Just Happened? (The "Why" — 1 minute)
 
-Every time you write a new post, you manually type the same front matter. **Archetypes** automate this.
-
-### 4.1 Create a Custom Archetype for Posts
-
-```bash
-mkdir -p archetypes
-nano archetypes/posts.md
-```
-
-Add this content:
-
-```yaml
----
-title: "{{ replace .File.ContentBaseName `-` ` ` | title }}"
-date: {{ .Date }}
-draft: true
-tags: []
-categories: []
-description: ""
----
-
-## Introduction
-
-<!-- Write your introduction here -->
-
-## Main Content
-
-<!-- Your main content goes here -->
-
-## Conclusion
-
-<!-- Summarize your post -->
-```
-
-### 4.2 Create a New Post Using the Archetype
-
-Now when you create a new post, Hugo will use your template:
-
-```bash
-hugo new posts/my-awesome-post/index.md
-```
-
-Open the file and see the pre-filled front matter and structure!
-
-### 4.3 Write Your First Real Blog Post
-
-Fill in the content. Write about something you learned recently. Don't worry about perfection — just write.
-
----
-
-## Part 5: Experiment — Break Things on Purpose (5 minutes)
-
-The best way to learn is to break things and fix them.
-
-### 5.1 Experiment 1: Change the Theme Color
-
-Open `config/_default/params.toml` and find:
-
-```toml
-[color]
-    scheme = "auto"  # or "light", "dark"
-```
-
-Change it to `"dark"` and see what happens. Then try `"light"`.
-
-### 5.2 Experiment 2: Add a Custom Widget
-
-Create a custom sidebar widget:
-
-```bash
-mkdir -p layouts/partials/widget
-nano layouts/partials/widget/custom.html
-```
-
-Add this content:
-
-```html
-<div class="widget">
-    <h3>📚 Quote of the Day</h3>
-    <p>"The best way to predict the future is to create it."</p>
-</div>
-```
-
-Now add it to `params.toml`:
-
-```toml
-[widgets]
-    homepage = ["search", "custom", "categories", "tag-cloud"]
-```
-
-Restart `hugo server` and see your custom widget appear!
-
-### 5.3 Experiment 3: Deliberately Break the Site
-
-Change `baseurl` in `config.toml` to something wrong:
-
-```toml
-baseurl = "https://wrong-url/"
-```
-
-Push this change. Watch GitHub Actions fail. Fix it, push again, and watch it succeed.
-
-> **This is the most important lesson**: You now know how to **debug** your own site. The error messages in GitHub Actions are your friends — read them carefully.
-
----
-
-## Part 6: Understanding the Automation (5 minutes)
-
-Now that you've made changes, let's understand *how* they get deployed.
+You just experienced **automated deployment** without understanding how it works. That's intentional. Now, let's peek behind the curtain:
 
 ### 6.1 The Workflow File
 
-Open the GitHub Actions workflow:
+Look at this file in your repository:
 
 ```bash
 cat .github/workflows/gh-pages.yml
 ```
 
-You'll see something like:
+This YAML file tells GitHub what to do when you push code. In plain English, it says:
 
-```yaml
-name: Deploy Hugo site to Pages
+> "Whenever someone pushes to the `main` branch, spin up a fresh Ubuntu machine, install Hugo, run `hugo` to build the website, and deploy the result to GitHub Pages."
 
-on:
-  push:
-    branches: ["main"]
-  workflow_dispatch:
+### 6.2 The Trigger
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
-        with:
-          go-version: 'stable'
-      - uses: actions/setup-hugo@v3
-        with:
-          hugo-version: 'latest'
-          extended: true
-      - run: hugo --minify
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./public
+The workflow is triggered by `push` events to the `main` branch. Every time you `git push`, GitHub Actions runs the workflow automatically.
 
-  deploy:
-    needs: build
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/deploy-pages@v4
-```
+### 6.3 The Build
 
-### 6.2 What Each Section Does
+The workflow uses a GitHub-provided action to set up Hugo, then runs `hugo` to generate the static HTML files from your Markdown content and Stack theme templates.
 
-| Section | Purpose |
-|---------|---------|
-| `on: push` | Triggers on every push to `main` |
-| `runs-on: ubuntu-latest` | Runs on a fresh Ubuntu machine |
-| `actions/checkout` | Downloads your code |
-| `actions/setup-hugo` | Installs Hugo with Go modules support |
-| `hugo --minify` | Builds your site (minifies HTML/CSS/JS) |
-| `upload-pages-artifact` | Saves the built site |
-| `deploy-pages` | Deploys to GitHub Pages |
+### 6.4 The Deploy
 
-### 6.3 The cron job for automatic theme updates
-
-Some starter templates include a cron job to automatically update the theme daily. Check if yours has it:
-
-```bash
-cat .github/workflows/update-theme.yml
-```
-
-If it exists, it will run on a schedule to keep your theme current.
+The workflow uses the `peaceiris/actions-gh-pages` action to deploy the generated `public/` folder to the `gh-pages` branch, which GitHub Pages serves.
 
 ---
 
 ## Summary: What You Learned
 
-| Concept | What You Did | Why It Matters |
-|---------|--------------|----------------|
-| **Directory Structure** | Explored every folder | You know where everything goes |
-| **Configuration** | Changed title, description, widgets | You control the look and feel |
-| **Content Organization** | Created an About page | You understand URLs and sections |
-| **Archetypes** | Created a post template | You save time writing new posts |
-| **Customization** | Added a custom widget | You can extend the theme |
-| **Debugging** | Broke and fixed the site | You can troubleshoot problems |
-| **Workflow** | Read the GitHub Actions file | You understand the automation |
+| Concept | What You Did | What It Means |
+|---------|--------------|---------------|
+| **Static Site Generator** | Ran `hugo server` | Hugo converts Markdown → HTML |
+| **Git** | `git clone`, `git push` | Version control + remote hosting |
+| **GitHub Actions** | Pushed code → watched workflow run | Automation: build + deploy on every push |
+| **GitHub Pages** | Visited `username.github.io` | Free static hosting |
 
 ---
 
 ## Your Homework (For Next Class)
 
-1. **Write a real post**: Create a new post using your archetype. Write about something you learned in Lesson 1 or 2. Include a code block, a list, and an image.
+1. **Break something**: Edit `config/_default/config.toml` and change `baseurl` to `https://wrong-url/`. Push it. Watch what happens in Actions. Fix it. Push again.
 
-2. **Customize the footer**: Find where the footer text comes from (hint: look in `config/_default/params.toml` for `copyright`). Change it to your name.
+2. **Modify content**: Find `content/posts/` and edit one of the existing Markdown files. Change the title, add a paragraph. Push and see your changes live.
 
-3. **Add a new section**: Create a `content/notes/` directory. Create an `_index.md` file inside it. Add a few notes. How does the URL structure work? What happens if you add it to the menu?
-
-4. **Read the docs**: Skim the Hugo documentation on [Content Organization](https://gohugo.io/content-management/organization/). Understanding this will make everything else easier.
+3. **Explore**: Look at the `config/` folder. What other settings can you find? What does `params.toml` control?
 
 ---
 
 ## Key Insight
 
-**You now own this blog.** It's not a template anymore — it's *your* site. You know where the settings are, how to add pages, and how to customize the look.
+**You don't need to understand everything to get started.** The "top-down" approach means:
 
-The "top-down" approach has taken you from:
+1. **First**, see the *result* (live website)
+2. **Then**, experiment with *changes* (edit config, break things)
+3. **Finally**, understand the *mechanism* (GitHub Actions, Hugo, Git)
 
-**Lesson 1**: "I have a website!" → **Lesson 2**: "I understand how it works and can change anything I want."
-
-Next: We'll dive deeper into Hugo's template system and learn how to create custom layouts for different types of content.
+This is the opposite of traditional teaching (learn Git → learn YAML → learn Hugo → get a website). Which one feels more motivating?
 
 ---
 
-*"The only way to learn a new programming language is by writing programs in it." — Dennis Ritchie*
+*"The important thing is not to stop questioning." — Albert Einstein*

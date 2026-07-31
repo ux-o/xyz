@@ -5,7 +5,9 @@ title: |
 ---
 ## Table Of Contents
 
-- [mpv crash workaround](gh-pages-hugo/lesson01.md)
+- [Your Blog Goes Live in 10 Minutes](gh-pages-hugo/lesson01.md)
+- [Explore and Customize](gh-pages-hugo/lesson02.md)
+
 - [mpv crash workaround](gh-pages-hugo/mpv-crash.md)
 
 ## 序言：当“梦”成为方法论
