@@ -52,9 +52,11 @@ The latest Information, AI lag, esp. the RAD model!
 
 1. [TOC 1](index01.md)
 
-2. [Dream: Github Pages in 10 minutes](ghpHugo01.md)
+2. [第一课：10分钟上线个人博客](ghpHugo01.md)
 
 3. [第二课：探索配置文件](ghpHugo02.md)
+
+4. [第三课：内容创作](ghpHugo03.md)
 
 ## Information
 
