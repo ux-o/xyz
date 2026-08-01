@@ -54,6 +54,8 @@ The latest Information, AI lag, esp. the RAD model!
 
 2. [Dream: Github Pages in 10 minutes](ghpHugo01.md)
 
+3. [第二课：探索配置文件](ghpHugo02.md)
+
 ## Information
 
 - [hq0728](hq0728ai.md)
