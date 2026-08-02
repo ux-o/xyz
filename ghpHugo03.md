@@ -377,9 +377,9 @@ hugo new site myblog
 ```
 
 ## 视频教程
-
-`{{&lt; youtube dQw4w9WgXcQ &gt;}}`
-
+```
+{{< youtube dQw4w9WgXcQ >}}
+```
 ## 参考资源
 
 - [Hugo 官方文档](https://gohugo.io/)
