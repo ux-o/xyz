@@ -81,13 +81,13 @@ Hugo 支持两种方式来组织一篇文章：
 ### 2.1 使用 Hugo 命令创建文章
 
 ```bash
-hugo new content posts/my-first-blog/index.md
+hugo new content post/my-first-blog/index.md
 ```
 
 打开生成的文件：
 
 ```bash
-cat content/posts/my-first-blog/index.md
+cat content/post/my-first-blog/index.md
 ```
 
 你会看到：
@@ -378,7 +378,7 @@ hugo new site myblog
 
 ## 视频教程
 
-{{< youtube dQw4w9WgXcQ >}}
+`{{< youtube dQw4w9WgXcQ >}}`
 
 ## 参考资源
 
