@@ -378,7 +378,7 @@ hugo new site myblog
 
 ## 视频教程
 ```
-{{ youtube dQw4w9WgXcQ }}
+\{\{ youtube dQw4w9WgXcQ \}\}
 ```
 ## 参考资源
 
