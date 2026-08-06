@@ -58,6 +58,8 @@ The latest Information, AI lag, esp. the RAD model!
 
 4. [第三课：内容创作](ghpHugo03.md)
 
+5. [第四课：GitHub Actions 深度定制](ghpHugo04.md)
+
 ## Information
 
 - [hq0728](hq0728ai.md)
