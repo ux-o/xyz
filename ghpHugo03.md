@@ -230,7 +230,7 @@ Shortcode 本质上是一个**模板**，在 Markdown 中被调用。Hugo 内置
 ```markdown
 ## 视频教程
 
-{{< youtube dQw4w9WgXcQ >}}
+\{\{\< youtube dQw4w9WgXcQ \>\}\}
 ```
 
 > **注意**：`{{<` 和 `>}}` 是 Shortcode 的调用语法。`youtube` 后面跟的是视频 ID（从视频 URL 中提取）。
