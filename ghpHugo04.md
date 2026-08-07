@@ -133,7 +133,7 @@ jobs:
 `actions/setup-go` 在 Runner 上安装指定版本的 Go。`${{ env.GO_VERSION }}` 引用了前面定义的环境变量。
 {% endraw %}
 ### 2.6 设置 Hugo
-
+{% raw %}
 ```yaml
 - name: Setup Hugo
   uses: peaceiris/actions-hugo@v3
@@ -141,13 +141,13 @@ jobs:
     hugo-version: ${{ env.HUGO_VERSION }}
     extended: true
 ```
-
+{% endraw %}
 `peaceiris/actions-hugo` 是一个社区 Action，用于安装 Hugo。
 
 > **注意**：`extended: true` 表示安装 Hugo 的**扩展版**。Stack 主题 v4 需要 Hugo 0.157.0 以上的扩展版。
 
 ### 2.7 构建网站
-
+{% raw %}
 ```yaml
 - name: Build the site
   run: |
@@ -157,7 +157,7 @@ jobs:
       --baseURL "${{ steps.pages.outputs.base_url }}/" \
       --cacheDir "${{ runner.temp }}/hugo_cache"
 ```
-
+{% endraw %}
 | 参数 | 作用 |
 |------|------|
 | `--gc` | 垃圾回收，清理无用缓存 |
@@ -179,7 +179,7 @@ jobs:
 `actions/upload-pages-artifact` 将 `public/` 目录打包成一个 **artifact**（构建产物），供后续部署使用。
 
 ### 2.9 Deploy（部署）Job
-
+{% raw %}
 ```yaml
 deploy:
   environment:
@@ -192,7 +192,7 @@ deploy:
       id: deployment
       uses: actions/deploy-pages@v5
 ```
-
+{% endraw %}
 | 部分 | 作用 |
 |------|------|
 | `needs: build` | 等待 `build` Job 完成后才执行 |
@@ -231,7 +231,7 @@ on:
 ```
 
 然后修改 `Setup Hugo` 步骤，支持动态版本：
-
+{% raw %}
 ```yaml
 - name: Setup Hugo
   uses: peaceiris/actions-hugo@v3
@@ -239,7 +239,7 @@ on:
     hugo-version: ${{ github.event.inputs.hugo_version || env.HUGO_VERSION }}
     extended: true
 ```
-
+{% endraw %}
 修改部署步骤，支持跳过部署：
 
 ```yaml
