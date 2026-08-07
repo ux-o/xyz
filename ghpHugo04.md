@@ -122,7 +122,7 @@ jobs:
 > **关键洞察**：每次 Workflow 运行，GitHub 都会**启动一台全新的虚拟机**，在上面执行所有步骤。运行结束后，虚拟机被销毁。这就是“无状态”的 CI/CD 哲学。
 
 ### 2.5 设置 Go
-
+{% raw %}
 ```yaml
 - name: Setup Go
   uses: actions/setup-go@v6
@@ -131,7 +131,7 @@ jobs:
 ```
 
 `actions/setup-go` 在 Runner 上安装指定版本的 Go。`${{ env.GO_VERSION }}` 引用了前面定义的环境变量。
-
+{% endraw %}
 ### 2.6 设置 Hugo
 
 ```yaml
