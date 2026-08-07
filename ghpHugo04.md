@@ -265,7 +265,7 @@ git push origin main
 每次构建都重新下载所有依赖很慢。使用缓存可以大幅加速。
 
 **操作**：在 `deploy.yml` 的 `build` Job 中，在 `Setup Hugo` 之后添加：
-
+{% raw %}
 ```yaml
 - name: Cache Hugo resources
   uses: actions/cache@v5
@@ -277,7 +277,7 @@ git push origin main
     restore-keys: |
       ${{ runner.os }}-hugo-resources-
 ```
-
+{% endraw %}
 **解释**：
 - `path`：要缓存的目录（Hugo 生成的资源和构建缓存）
 - `key`：缓存的唯一标识。当 `go.sum` 变化时，缓存会失效并重建
@@ -343,21 +343,21 @@ GitHub Secrets 是**加密存储**的变量，在日志中会被自动隐藏。
 3. 名称：`CUSTOM_DOMAIN`，值：`your-domain.com`
 
 **在 Workflow 中使用**：
-
+{% raw %}
 ```yaml
 - name: Create CNAME file
   run: echo "${{ secrets.CUSTOM_DOMAIN }}" > public/CNAME
 ```
-
+{% endraw %}
 ### 4.3 GITHUB_TOKEN —— 自动生成的 Token
 
 GitHub Actions 会自动生成一个 `GITHUB_TOKEN`，用于认证当前 Workflow。
-
+{% raw %}
 ```yaml
 with:
   github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
-
+{% endraw %}
 > **关键洞察**：`GITHUB_TOKEN` **不需要**你手动创建。它的权限由 Workflow 的 `permissions` 字段控制。
 
 ---
@@ -385,12 +385,12 @@ with:
 ```
 
 或者使用 Secret：
-
+{% raw %}
 ```yaml
 - name: Create CNAME file
   run: echo "${{ secrets.CUSTOM_DOMAIN }}" > public/CNAME
 ```
-
+{% endraw %}
 ### 5.3 在配置文件中设置 baseurl
 
 别忘了在 `config/_default/config.toml` 中更新：
@@ -462,7 +462,7 @@ jobs:
 ### 7.2 添加调试输出
 
 在 Workflow 中添加 `echo` 命令输出变量值：
-
+{% raw %}
 ```yaml
 - name: Debug info
   run: |
@@ -470,7 +470,7 @@ jobs:
     echo "Runner OS: ${{ runner.os }}"
     echo "Event name: ${{ github.event_name }}"
 ```
-
+{% endraw %}
 ### 7.3 使用 `ACTIONS_STEP_DEBUG` 开启详细日志
 
 在仓库 Settings → Secrets → Actions 中添加一个 Secret：
